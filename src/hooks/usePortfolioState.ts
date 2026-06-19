@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { sampleState } from "@/data/sampleData";
 import { normalizeSettings } from "@/lib/calculations";
-import type { AppState, BuyChecklistEntry, Holding, PortfolioSettings } from "@/types";
+import type { AppState, BuyChecklistEntry, Holding, MarketQuote, PortfolioSettings } from "@/types";
 
 export const STORAGE_KEY = "long-game-portfolio-guard:v1";
 
@@ -90,6 +90,27 @@ export function usePortfolioState() {
         setState((current) => ({
           ...current,
           buyChecklistLog: [entry, ...current.buyChecklistLog]
+        }));
+      },
+      updateHoldingPrices(quotes: MarketQuote[]) {
+        const quoteMap = new Map(quotes.map((quote) => [quote.symbol.toUpperCase(), quote.price]));
+
+        setState((current) => ({
+          ...current,
+          holdings: current.holdings.map((holding) => {
+            const price = quoteMap.get(holding.ticker.toUpperCase());
+            if (!price) return holding;
+
+            return {
+              ...holding,
+              currentPrice: price,
+              updatedAt: new Date().toISOString().slice(0, 10)
+            };
+          }),
+          settings: {
+            ...current.settings,
+            lastPriceRefreshAt: new Date().toISOString()
+          }
         }));
       },
       importState(nextState: AppState) {

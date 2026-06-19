@@ -10,6 +10,7 @@ import { HoldingForm } from "@/components/HoldingForm";
 import { HoldingsTable } from "@/components/HoldingsTable";
 import { MarginGuardrail } from "@/components/MarginGuardrail";
 import { MonthlyPlanner } from "@/components/MonthlyPlanner";
+import { PriceRefreshPanel } from "@/components/PriceRefreshPanel";
 import { SettingsPanel } from "@/components/SettingsPanel";
 import { usePortfolioState } from "@/hooks/usePortfolioState";
 import type { Holding } from "@/types";
@@ -75,6 +76,11 @@ export default function HomePage() {
             <div className="grid gap-5 xl:grid-cols-[1fr_360px]">
               <Dashboard state={state} />
               <div className="space-y-5">
+                <PriceRefreshPanel
+                  holdings={state.holdings}
+                  lastPriceRefreshAt={state.settings.lastPriceRefreshAt}
+                  onPrices={actions.updateHoldingPrices}
+                />
                 <MarginGuardrail marginUsed={state.settings.marginUsed} />
                 <AllocationChart holdings={state.holdings} />
               </div>
@@ -85,6 +91,11 @@ export default function HomePage() {
             <div className="grid gap-5 xl:grid-cols-[380px_1fr]">
               <HoldingForm holding={editingHolding} onSave={saveHolding} onCancel={editingHolding ? () => setEditingHolding(undefined) : undefined} />
               <div className="space-y-5">
+                <PriceRefreshPanel
+                  holdings={state.holdings}
+                  lastPriceRefreshAt={state.settings.lastPriceRefreshAt}
+                  onPrices={actions.updateHoldingPrices}
+                />
                 <AllocationChart holdings={state.holdings} />
                 <HoldingsTable holdings={state.holdings} onEdit={setEditingHolding} onDelete={deleteHolding} />
               </div>

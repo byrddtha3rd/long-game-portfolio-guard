@@ -35,6 +35,7 @@ export type PortfolioSettings = {
   buyingPower: number;
   cash: number;
   marginUsed: number;
+  lastPriceRefreshAt?: string;
 };
 
 export type ChecklistAnswers = {
@@ -62,6 +63,14 @@ export type AppState = {
   holdings: Holding[];
   settings: PortfolioSettings;
   buyChecklistLog: BuyChecklistEntry[];
+};
+
+export type MarketQuote = {
+  symbol: string;
+  price: number;
+  currency?: string;
+  marketState?: string;
+  sourceName?: string;
 };
 
 export type HoldingWithMetrics = Holding & {

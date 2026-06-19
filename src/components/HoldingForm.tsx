@@ -122,6 +122,25 @@ function NumberField({
   min?: number;
   max?: number;
 }) {
+  const [textValue, setTextValue] = useState(String(value));
+
+  useEffect(() => {
+    setTextValue(String(value));
+  }, [value]);
+
+  const commitValue = (nextValue: string) => {
+    if (nextValue.trim() === "") {
+      setTextValue("0");
+      onChange(0);
+      return;
+    }
+
+    const parsed = Number(nextValue);
+    if (Number.isFinite(parsed)) {
+      onChange(parsed);
+    }
+  };
+
   return (
     <label className="block">
       <span className="label">{label}</span>
@@ -131,8 +150,9 @@ function NumberField({
         min={min}
         max={max}
         step="0.01"
-        value={value}
-        onChange={(event) => onChange(Number(event.target.value))}
+        value={textValue}
+        onChange={(event) => setTextValue(event.target.value)}
+        onBlur={(event) => commitValue(event.target.value)}
       />
     </label>
   );

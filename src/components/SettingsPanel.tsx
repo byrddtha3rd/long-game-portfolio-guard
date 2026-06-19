@@ -1,7 +1,7 @@
 "use client";
 
 import { Download, RefreshCcw, Upload } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { AppState, PortfolioSettings } from "@/types";
 
 export function SettingsPanel({
@@ -125,10 +125,36 @@ export function SettingsPanel({
 }
 
 function NumberField({ label, value, onChange }: { label: string; value: number; onChange: (value: number) => void }) {
+  const [textValue, setTextValue] = useState(String(value));
+
+  useEffect(() => {
+    setTextValue(String(value));
+  }, [value]);
+
+  const commitValue = (nextValue: string) => {
+    if (nextValue.trim() === "") {
+      setTextValue("0");
+      onChange(0);
+      return;
+    }
+
+    const parsed = Number(nextValue);
+    if (Number.isFinite(parsed)) {
+      onChange(parsed);
+    }
+  };
+
   return (
     <label>
       <span className="label">{label}</span>
-      <input className="field mt-1" type="number" step="0.01" value={value} onChange={(event) => onChange(Number(event.target.value))} />
+      <input
+        className="field mt-1"
+        type="number"
+        step="0.01"
+        value={textValue}
+        onChange={(event) => setTextValue(event.target.value)}
+        onBlur={(event) => commitValue(event.target.value)}
+      />
     </label>
   );
 }

@@ -12,6 +12,7 @@ This is not a trading app. It does not connect to Robinhood, request brokerage c
 - Bucket allocation tracking and speculative exposure warning
 - Buy decision checklist with warning-only guardrails
 - Monthly contribution planner
+- Optional public-market price refresh for listed tickers
 - Options Lock setting
 - JSON backup export/import
 
