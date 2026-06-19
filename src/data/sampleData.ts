@@ -1,0 +1,201 @@
+import type { AppState, Holding } from "@/types";
+
+const now = "2026-06-18";
+
+export const sampleHoldings: Holding[] = [
+  {
+    id: "holding-mrvl",
+    ticker: "MRVL",
+    companyName: "Marvell Technology",
+    shares: 24,
+    averageCost: 67.5,
+    currentPrice: 72,
+    bucket: "Core Growth",
+    thesis:
+      "AI infrastructure, custom silicon, data center networking, S&P 500 inclusion, and NVIDIA ecosystem connection.",
+    convictionScore: 5,
+    sellRules:
+      "Sell only if the AI infrastructure thesis weakens, guidance is cut, customer demand slows, or a better long-term opportunity emerges.",
+    addRules:
+      "Add with monthly contributions when margin is under control and position size remains inside the core growth range.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-qqqm",
+    ticker: "QQQM",
+    companyName: "Invesco NASDAQ 100 ETF",
+    shares: 9,
+    averageCost: 181,
+    currentPrice: 196,
+    bucket: "ETF / Broad Exposure",
+    thesis:
+      "Broad technology exposure that reduces single-stock decision pressure and supports long-term compounding.",
+    convictionScore: 5,
+    sellRules: "Trim only if allocation materially exceeds broad exposure target or cash is needed for margin reduction.",
+    addRules: "Add when no single-stock thesis has improved enough to justify concentration.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-ddog",
+    ticker: "DDOG",
+    companyName: "Datadog",
+    shares: 8,
+    averageCost: 114,
+    currentPrice: 126,
+    bucket: "Core Growth",
+    thesis: "Software observability and cloud infrastructure platform with durable expansion potential.",
+    convictionScore: 4,
+    sellRules: "Sell if growth durability breaks, platform relevance fades, or valuation no longer fits the plan.",
+    addRules: "Add on planned review dates if fundamentals improve and margin is low.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-ttwo",
+    ticker: "TTWO",
+    companyName: "Take-Two Interactive",
+    shares: 5,
+    averageCost: 153,
+    currentPrice: 164,
+    bucket: "Core Growth",
+    thesis: "Long-duration interactive entertainment portfolio with major franchise optionality.",
+    convictionScore: 4,
+    sellRules: "Sell if execution quality weakens or the long-term franchise thesis changes.",
+    addRules: "Add only during monthly allocation windows and when it does not crowd out MRVL or QQQM.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-dram",
+    ticker: "DRAM",
+    companyName: "Memory Semiconductor Basket",
+    shares: 18,
+    averageCost: 10,
+    currentPrice: 12.5,
+    bucket: "Speculative Future Tech",
+    thesis: "Small memory-cycle and semiconductor infrastructure exposure.",
+    convictionScore: 3,
+    sellRules: "Trim if speculative allocation exceeds target or thesis becomes less differentiated.",
+    addRules: "Add only after margin is zero and speculative exposure is below target.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-ionq",
+    ticker: "IONQ",
+    companyName: "IonQ",
+    shares: 12,
+    averageCost: 21,
+    currentPrice: 28,
+    bucket: "Speculative Future Tech",
+    thesis: "Quantum computing optionality with high upside and high uncertainty.",
+    convictionScore: 3,
+    sellRules: "Trim if position grows ahead of evidence or speculative exposure breaches target.",
+    addRules: "Add only after written thesis review and no active margin pressure.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-crdo",
+    ticker: "CRDO",
+    companyName: "Credo Technology",
+    shares: 10,
+    averageCost: 38,
+    currentPrice: 44,
+    bucket: "Speculative Future Tech",
+    thesis: "AI connectivity and data center networking upside with elevated volatility.",
+    convictionScore: 3,
+    sellRules: "Trim if expectations run too far ahead of revenue quality or position size becomes distracting.",
+    addRules: "Add only if thesis improves and speculative bucket remains under 15%.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-joby",
+    ticker: "JOBY",
+    companyName: "Joby Aviation",
+    shares: 20,
+    averageCost: 6.2,
+    currentPrice: 7.1,
+    bucket: "Speculative Future Tech",
+    thesis: "Future aviation optionality with regulatory and commercialization risk.",
+    convictionScore: 2,
+    sellRules: "Sell or trim if commercialization milestones slip materially.",
+    addRules: "Watch only unless margin is zero and speculative target has room.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-achr",
+    ticker: "ACHR",
+    companyName: "Archer Aviation",
+    shares: 20,
+    averageCost: 5.4,
+    currentPrice: 6.3,
+    bucket: "Speculative Future Tech",
+    thesis: "Small eVTOL exposure with high uncertainty and binary-style milestones.",
+    convictionScore: 2,
+    sellRules: "Sell if funding, certification, or commercialization path weakens.",
+    addRules: "Avoid adding while other speculative positions need room.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-eh",
+    ticker: "EH",
+    companyName: "EHang",
+    shares: 8,
+    averageCost: 15,
+    currentPrice: 13.5,
+    bucket: "Speculative Future Tech",
+    thesis: "Very small autonomous aviation exposure with substantial geopolitical and execution risk.",
+    convictionScore: 2,
+    sellRules: "Sell if risk profile overwhelms portfolio usefulness.",
+    addRules: "Do not add unless a monthly review explicitly upgrades the thesis.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  },
+  {
+    id: "holding-spacex",
+    ticker: "SpaceX",
+    companyName: "SpaceX",
+    shares: 1,
+    averageCost: 350,
+    currentPrice: 350,
+    bucket: "Watch Only",
+    thesis: "Private space infrastructure watchlist idea; not liquid or manually tradable here.",
+    convictionScore: 4,
+    sellRules: "Keep as watch-only unless there is a clear private-market plan.",
+    addRules: "Do not treat as ordinary buying power or a trading idea.",
+    lastReviewedAt: now,
+    createdAt: now,
+    updatedAt: now
+  }
+];
+
+export const sampleState: AppState = {
+  schemaVersion: 1,
+  holdings: sampleHoldings,
+  settings: {
+    monthlyContribution: 554,
+    nextContributionDate: "2026-07-01",
+    optionsLockEnabled: true,
+    startingYearValue: 6500,
+    buyingPower: 1240,
+    cash: 620,
+    marginUsed: 450
+  },
+  buyChecklistLog: []
+};

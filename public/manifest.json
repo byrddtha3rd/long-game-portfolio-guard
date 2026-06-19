@@ -1,0 +1,10 @@
+{
+  "name": "Long Game Portfolio Guard",
+  "short_name": "Portfolio Guard",
+  "description": "Manual-entry discipline dashboard for long-term portfolio behavior.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8f4",
+  "theme_color": "#f7f8f4",
+  "icons": []
+}
