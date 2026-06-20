@@ -62,6 +62,11 @@ export function SettingsPanel({
           </label>
           <NumberField label="Starting year value" value={state.settings.startingYearValue} onChange={(value) => update("startingYearValue", value)} />
           <NumberField label="Cash" value={state.settings.cash} onChange={(value) => update("cash", value)} />
+          <NumberField
+            label="Options / other value"
+            value={state.settings.optionsAndOtherValue ?? 0}
+            onChange={(value) => update("optionsAndOtherValue", value)}
+          />
           <NumberField label="Margin used" value={state.settings.marginUsed} onChange={(value) => update("marginUsed", value)} />
           <NumberField label="Buying power" value={state.settings.buyingPower} onChange={(value) => update("buyingPower", value)} />
         </div>

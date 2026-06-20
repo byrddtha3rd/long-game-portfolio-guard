@@ -6,7 +6,7 @@ This is not a trading app. It does not connect to Robinhood, request brokerage c
 
 ## Features
 
-- Dashboard with account value, cash, margin used, buying power warning, monthly contribution timing, YTD performance, and portfolio health
+- Dashboard with net account value, gross holdings value, cash, options/other manual value, margin used, buying power warning, monthly contribution timing, YTD performance, and portfolio health
 - Manual holdings entry with thesis, add rules, sell rules, conviction score, and bucket assignment
 - Margin guardrails with Green, Yellow, Orange, and Red status
 - Bucket allocation tracking and speculative exposure warning

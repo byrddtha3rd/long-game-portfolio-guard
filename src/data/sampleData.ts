@@ -195,7 +195,8 @@ export const sampleState: AppState = {
     startingYearValue: 6500,
     buyingPower: 1240,
     cash: 620,
-    marginUsed: 450
+    marginUsed: 450,
+    optionsAndOtherValue: 0
   },
   buyChecklistLog: []
 };

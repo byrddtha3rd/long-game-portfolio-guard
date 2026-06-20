@@ -41,8 +41,11 @@ export function Dashboard({ state }: { state: AppState }) {
           icon={<WalletCards className="h-5 w-5" aria-hidden="true" />}
           label="Total account value"
           value={formatCurrency(summary.totalAccountValue)}
+          note="Holdings plus cash and other value, minus margin used."
         />
+        <MetricCard label="Gross holdings value" value={formatCurrency(summary.holdingsValue)} />
         <MetricCard label="Cash" value={formatCurrency(state.settings.cash)} />
+        <MetricCard label="Options / other" value={formatCurrency(summary.optionsAndOtherValue)} />
         <MetricCard label="Margin used" value={formatCurrency(state.settings.marginUsed)} tone="risk" />
         <MetricCard label="Net investable cash" value={formatCurrency(summary.netInvestableCash)} />
         <MetricCard

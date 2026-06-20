@@ -35,6 +35,7 @@ export type PortfolioSettings = {
   buyingPower: number;
   cash: number;
   marginUsed: number;
+  optionsAndOtherValue?: number;
   lastPriceRefreshAt?: string;
 };
 

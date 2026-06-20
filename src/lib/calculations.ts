@@ -78,7 +78,9 @@ export function getBucketAllocations(holdings: Holding[]): BucketAllocation[] {
 
 export function getPortfolioSummary(state: AppState) {
   const holdingsValue = getHoldingsValue(state.holdings);
-  const totalAccountValue = holdingsValue + safeNumber(state.settings.cash);
+  const optionsAndOtherValue = safeNumber(state.settings.optionsAndOtherValue ?? 0);
+  const totalAccountValue =
+    holdingsValue + safeNumber(state.settings.cash) + optionsAndOtherValue - safeNumber(state.settings.marginUsed);
   const netInvestableCash = safeNumber(state.settings.cash) - safeNumber(state.settings.marginUsed);
   const ytdPerformance =
     state.settings.startingYearValue === 0
@@ -90,6 +92,7 @@ export function getPortfolioSummary(state: AppState) {
 
   return {
     holdingsValue,
+    optionsAndOtherValue,
     totalAccountValue,
     netInvestableCash,
     ytdPerformance,
@@ -200,7 +203,8 @@ export function normalizeSettings(settings: PortfolioSettings): PortfolioSetting
     startingYearValue: safeNumber(settings.startingYearValue),
     buyingPower: safeNumber(settings.buyingPower),
     cash: safeNumber(settings.cash),
-    marginUsed: safeNumber(settings.marginUsed)
+    marginUsed: safeNumber(settings.marginUsed),
+    optionsAndOtherValue: safeNumber(settings.optionsAndOtherValue ?? 0)
   };
 }
 
