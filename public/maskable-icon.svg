@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Long Game Portfolio Guard maskable icon">
+  <rect width="512" height="512" fill="#1f7a4c"/>
+  <circle cx="256" cy="256" r="196" fill="#f7f8f4"/>
+  <path d="M256 94 382 142v90c0 90-48 163-126 215-78-52-126-125-126-215v-90L256 94Z" fill="#1f7a4c"/>
+  <path d="M256 138 338 170v64c0 58-30 105-82 142-52-37-82-84-82-142v-64l82-32Z" fill="#f7f8f4"/>
+  <path d="M176 300c35-53 71-82 108-88 25-4 49 3 72 20" fill="none" stroke="#1f7a4c" stroke-width="26" stroke-linecap="round"/>
+</svg>
